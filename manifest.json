@@ -1,0 +1,30 @@
+{
+	"manifest_version": 2,
+	"name": "vue3-extension-template",
+	"version": "0.0.1",
+	"description": "使用Vue3.0开发chrome拓展的模版",
+	"icons": {
+		"16": "img/icon.png",
+		"48": "img/icon.png",
+		"128": "img/icon.png"
+	},
+	"background": {
+		"page": "background.js"
+	},
+	"browser_action": {
+		"default_icon": "img/icon.png",
+		"default_title": "使用Vue3.0开发chrome拓展的模版",
+		"default_popup": "index.html"
+	},
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["content.js"],
+			"run_at": "document_start"
+		}
+	],
+	"permissions": [
+		"tabs"
+	],
+	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
